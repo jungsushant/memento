@@ -55,6 +55,17 @@ useEffect(() => {
   };
 }, [cards, pickOne, pickTwo]);
 
+useEffect(()=>{
+const checkWin = cards.filter((card)=> !card.matched)
+
+if (cards.length && checkWin.length < 1) {
+  console.log("You win");
+  setWins(wins +1)
+  handleTurn()
+  setCards(shuffle)
+}
+},[])
+
   return (
  <>
 <div className="grid">
